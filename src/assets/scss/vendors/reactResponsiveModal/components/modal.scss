@@ -1,0 +1,28 @@
+@import '../../base/indexBaseRS';
+// Model
+.customReactResponsiveModal {
+  border-radius: rem($reactRPS-modal-radius);
+  font-size: 1rem;
+  min-width: rem(300px);
+  padding: rem($reactRPS-modal-space);
+  .modalHead {
+    border-bottom: 1px solid rgba(#000, .2);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: rem($reactRPS-modal-space);
+  }
+  .modalContent {
+    line-height: normal;
+    min-height: rem(100px);
+    padding: rem($reactRPS-modal-space);
+    text-transform: capitalize;
+  }
+  .modalContent-title {
+    font-weight: bold;
+  }
+  .modalFooter {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

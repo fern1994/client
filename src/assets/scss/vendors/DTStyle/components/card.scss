@@ -1,0 +1,16 @@
+// ##### Card #####
+$card-border-space:$main-space * 2;
+$card-title-font-size:1.5rem;
+// --------------------------------------------------------------------
+.dt-card {
+  background-color: #fff;
+  box-shadow: $main-box-shadow;
+  padding: rem($card-border-space);
+  border-radius: $main-radius;
+  .dt-card-title {
+    font-size: $card-title-font-size;
+    font-weight: $main-font-boldSize;
+    padding-bottom: rem($main-space);
+    margin-bottom: rem($main-space) * 2;
+  }
+}

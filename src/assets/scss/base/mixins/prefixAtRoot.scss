@@ -1,0 +1,7 @@
+// Mixins Prefix at root
+// -------------------------------
+@mixin prefixAtRoot($prefix) {
+    @at-root #{if(not & , $prefix , selector-append(&,$prefix))} {
+        @content;
+    }
+}

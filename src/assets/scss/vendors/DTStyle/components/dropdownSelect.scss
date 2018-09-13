@@ -1,0 +1,29 @@
+// ##### Select #####
+$select-bg-color:#f8f8f8;
+$select-padding:$btn-padding;
+// --------------------------------------------------------------------
+.dt-select {
+  position: relative;
+  position: relative;
+  @include btnStyle($btn-bg-color: $select-bg-color);
+  padding: 0;
+  &::after {
+    content: "\e906";
+    @include iconStyle();
+    font-size: 1.2rem;
+    position: absolute;
+    right: $select-padding;
+  }
+  >select {
+    cursor: pointer; // background-color: red;
+    appearance: button; 
+    background: none;
+    border: 0px;
+    padding: $select-padding;
+    padding-right: 2rem;
+    width: auto;
+    position: relative;
+    z-index: 1;
+    @include textDot();
+  }
+}

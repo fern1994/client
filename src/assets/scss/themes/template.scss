@@ -1,0 +1,451 @@
+// Main Template
+// -------------------------------
+* {
+  outline: none;
+}
+
+html,
+body {}
+
+html {
+  font-size: $main-browserContext--calc;
+}
+
+body {
+  @include fontStyle();
+  @extend %bgDot;
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.mainHeader {
+  background-color: $main-header-bg-color;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  @include fixHeight(rem($main-header-height));
+  >* {
+    display: inline-flex;
+    height: 100%;
+  }
+  &::before,
+  &::after {
+    content: '';
+    width: calc((100% - #{rem($main-content-width)}) / 2);
+  }
+}
+
+.mainHeader-logo {
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  img {
+    display: inline-flex;
+    height: rem($main-header-logo-height);
+  }
+}
+
+.mainHeader-content {}
+
+.mainHeader-logout {
+  .btnLogout {
+    align-items: center;
+    background: none;
+    border: 0px;
+    color: rgba(#000, .5);
+    display: flex;
+    flex-direction: column;
+    height: rem($main-header-height);
+    justify-content: center;
+    width: rem($main-header-height);
+    &::before {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.mainContent {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: auto;
+  padding: rem($main-space-layout);
+  position: relative;
+  width: $main-content-width + ($main-space-layout * 2);
+}
+
+.projectVer {
+  color: #525252;
+  font-size: .7rem;
+  letter-spacing: rem(1px);
+  &::before {
+    content: 'Ver.';
+    margin-right: rem(5px);
+  }
+}
+
+.mainContent-navBar,
+.mainContent-showInfo {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+  min-height: calc(100vh - #{rem($main-header-height + ($main-space-layout * 2) )});
+}
+
+.mainContent-navBar {
+  width: rem(250px);
+  margin-right: rem($main-space);
+  background-color: #fff;
+  border-radius: rem($main-radius);
+}
+
+.mainContent-showInfo {
+  border-radius: rem($main-radius);
+  background-color: #fff;
+  height: 100%;
+  flex: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+  padding: rem($main-space);
+}
+
+.showInfoHead {
+  display: flex;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: rem($main-space);
+  align-items: center;
+  height: rem(50px);
+  .showInfoHead-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    flex: 1;
+  }
+  .showInfoHead-contentRight {}
+}
+
+.showInfoContent {
+  height: calc(100vh - 165px);
+  overflow: auto;
+  padding: rem($main-space);
+  &.--privilege {
+    padding: initial;
+    padding-top: rem($main-space);
+  }
+}
+
+.privilegeContent {
+  display: flex;
+  .dt-card {
+    &.privilegeCard {
+      user-select: none;
+      padding: rem($main-space);
+      margin-bottom: rem($main-space);
+      border: 1px solid rgba(#000, .15);
+      background: #f8f8f8;
+      cursor: move;
+      .privilegeCard-title {
+        display: inline-flex;
+        font-weight: bold;
+        text-transform: capitalize;
+        width: rem(50px);
+        &::after {
+          content: ':';
+          display: inline-block;
+          margin-left: auto;
+          text-align: center;
+          width: rem(10px);
+        }
+      }
+    }
+  }
+}
+
+.privilegeList,
+.privilegeNewList {
+  border: 1px solid rgba(#000, .2);
+  border-radius: rem($main-radius);
+  flex: 1;
+}
+
+.privilegeList {}
+
+.privilegeList-search {
+  padding: rem($main-space);
+  border-bottom: 1px solid rgba(#000, .1);
+  box-shadow: 0px 1px 1px rgba(#000, .1);
+  position: relative;
+  z-index: 1;
+  .dt-inputField {
+    width: 100%;
+  }
+}
+
+.privilegeAction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: rem($main-space);
+  &[class*='ico-'] {
+    &::before {
+      font-size: 2.8rem;
+    }
+  }
+  >.dt-btn {
+    margin: rem($main-space);
+  }
+}
+
+.privilegeNewList {
+  display: flex;
+  flex-direction: column;
+}
+
+.privilege-btnControl {
+  border-top: 1px solid rgba(#000, .1);
+  padding: rem($main-space);
+}
+
+.privilege-dragContent,
+.privilege-dropContent {
+  padding: rem($main-space);
+  height: calc(100vh - 250px);
+  overflow: auto;
+  -webkit-overflow-scrolling: auto;
+  >* {
+    min-height: 100%;
+  }
+}
+
+.privilege-dragContent {}
+
+.privilege-dropContent {
+  flex: 1;
+}
+
+.changePasswordForm,
+.mfuConnectorForm {
+  width: 100%;
+  max-width: rem(350px);
+  margin: auto;
+}
+
+.PZODQ {
+  line-height: 1.3rem;
+}
+
+.ggxIoG,
+.bJVMLJ {
+  background-color: lighten($main-theme-color, 25%);
+  color: darken($main-theme-color, 15%);
+}
+
+@media screen and (max-width: 1024px) {
+  .mainContent-navBar {
+    width: auto;
+    max-width: rem(200px);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .mainContent-navBar {
+    max-width: rem(58px);
+    overflow: hidden;
+    position: absolute;
+    z-index: 4;
+    @include transitionMulti((max-width), .1s);
+  }
+  .mainContent-showInfo {
+    margin-left: rem(58px + $main-space)
+  }
+  .mainContent {
+    position: relative;
+    &::before {
+      content: '';
+      background-color: rgba(193, 193, 193, 0);
+      border-radius: rem($main-radius);
+      position: absolute;
+      z-index: 3;
+      @include transitionMulti((background-color));
+    }
+    &.--MenuExpand {
+      .mainContent-navBar {
+        max-width: 100%;
+        @include transitionMulti((max-width), 1s);
+      }
+      &::before {
+        background-color: rgba(193, 193, 193, 0.85);
+        height: calc(100% - #{rem($main-space-layout * 2)});
+        width: calc(100% - #{rem($main-space-layout * 2)});
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .privilegeContent {
+    flex-direction: column;
+    .privilege-dragContent,
+    .privilege-dropContent {
+      max-height: calc((100vh - 345px) / 2);
+    }
+    .privilegeAction {
+      overflow: hidden;
+      padding: 0;
+      text-align: center;
+      &::before {
+        transform: rotate(90deg);
+        font-size: 2.3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .mainContent-navBar {
+    max-width: initial;
+    min-height: inherit;
+    width: calc(100% - #{rem($main-space * 2)});
+    max-height: rem(45px);
+    height: rem(45px);
+    overflow: hidden;
+    position: absolute;
+    @include transitionMulti((all), .5s);
+  }
+  .mainContent-showInfo {
+    margin-left: 0;
+    min-height: initial;
+    margin-top: rem(45px + $main-space);
+    .showInfoContent {
+      overflow: auto;
+      max-height: calc(100vh - 210px);
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  .mainContent {
+    flex-direction: column;
+    padding: rem($main-space);
+    &.--MenuExpand {
+      &::before {
+        width: calc(100% - #{rem($main-space * 2)});
+        height: calc(100% - #{rem($main-space * 2)});
+      }
+      .mainContent-navBar {
+        height: auto;
+        max-height: calc(100vh - 80px);
+        z-index: 4;
+        @include transitionMulti((all), .5s);
+        .mainMenuList {
+          height: initial;
+          max-height: calc(100vh - 157px);
+        }
+      }
+    }
+  }
+  .privilegeContent {
+    .privilege-dragContent,
+    .privilege-dropContent {
+      padding: 0;
+      max-height: calc((100vh - 385px) / 2);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .userManagementTable {
+    display: flex;
+    tbody,
+    thead,
+    tfoot,
+    tr {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    td,
+    th {
+      width: auto !important;
+      line-height: 1.5rem;
+      padding: 0 !important;
+      border: none !important;
+    }
+    thead {
+      display: none;
+    }
+    tr {
+      border-radius: rem($main-radius);
+      border: 1px solid $main-border-color;
+      flex-wrap: wrap;
+      margin-bottom: rem($main-space);
+      padding: rem($main-space);
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    tbody {
+      td {
+        display: inline-flex;
+        justify-content: flex-start;
+        position: relative;
+        background-color: #fff !important;
+        &::before,
+        &::after {
+          font-weight: bold;
+        }
+        &::before {
+          order: -2;
+          flex-basis: 75px;
+          text-transform: capitalize;
+        }
+        &::after {
+          content: ':';
+          order: -1;
+          margin-right: rem(5px);
+        }
+        &:nth-of-type(1) {
+          &::before {
+            content: 'full name'
+          }
+        }
+        &:nth-of-type(2) {
+          &::before {
+            content: 'username'
+          }
+        }
+        &:nth-of-type(3) {
+          &::before {
+            content: 'e-mail'
+          }
+        }
+        &:nth-of-type(4) {
+          flex-basis: calc(100% - #{rem(100px)});
+          &::before {
+            content: 'role'
+          }
+        }
+        &:nth-of-type(5) {
+          position: absolute;
+          right: rem($main-space);
+          bottom: rem($main-space);
+          &::before,
+          &::after {
+            content: '';
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

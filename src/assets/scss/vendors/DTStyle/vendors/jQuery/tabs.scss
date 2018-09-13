@@ -1,0 +1,32 @@
+$jq-tabs-head-bg-color:#e7e7e7 !default;
+// --------------------------------------------------------------------
+.ui-widget.ui-tabs {
+  border: 0px;
+  background: none;
+  border-radius: $main-radius; // border: 1px solid rgba(#000, .25);
+  .ui-tabs-nav {
+    border-radius: $main-radius $main-radius 0 0;
+    background: $jq-tabs-head-bg-color;
+    border: 1px solid rgba(#000, .2); // ui-state-default ui-corner-top ui-tabs-active ui-state-active
+    .ui-state-default {
+      background: none;
+      border: none;
+      a {
+        color: $main-font-color;
+      }
+      &.ui-state-active {
+        background-color: #fff;
+        border-radius: $main-radius $main-radius 0 0;
+        border: 1px solid rgba(#000, .25);
+        border-bottom: 0;
+        font-weight: bold;
+      }
+    }
+  }
+  .ui-tabs-panel {
+    background-color: #fff;
+    border: 1px solid rgba(#000, .25);
+    border-top: 0;
+    border-radius: 0 0 $main-radius $main-radius;
+  }
+}

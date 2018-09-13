@@ -1,0 +1,66 @@
+// ##### jQuery Dialog #####
+$jq-Dialog-titlebar-height:45px !default;
+// --------------------------------------------------------------------
+.ui-widget {
+  &.ui-dialog {
+    background: none;
+    border-radius: rem($main-radius);
+    border: 0px;
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    .ui-dialog-titlebar {
+      border-radius: 0;
+      border-radius: 0;
+      display: flex;
+      background-image: none;
+      border: 0px;
+      padding: 0;
+      height: rem($jq-Dialog-titlebar-height);
+      align-items: center;
+      background-color: $main-theme-color;
+      border: 1px solid darken($main-theme-color, 5%);
+      border-radius: rem($main-radius) rem($main-radius) 0 0;
+      .ui-dialog-title {
+        flex: 1;
+        float: initial;
+        padding: rem($main-space);
+      }
+      .ui-dialog-titlebar-close {
+        align-items: center;
+        background-color: $main-theme-color;
+        background-image: initial;
+        border-radius: initial;
+        border: initial;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        margin: initial;
+        padding: initial;
+        position: relative;
+        right: initial;
+        top: initial;
+        width: rem($jq-Dialog-titlebar-height);
+        // @extend .ico-outline-clear;
+        &::before {
+          @include iconStyle;
+          font-size: 1.5rem;
+          color: rgba(#000, .25);
+          @include transitionMulti((color));
+        }
+        &:hover {
+          &::before {
+            color: rgba(#fff, .75);
+            @include transitionMulti((color));
+          }
+        }
+        >span {
+          display: none;
+        }
+      }
+    }
+    .ui-dialog-content {
+      background-color: #fff;
+      border-radius: 0 0 rem($main-radius) rem($main-radius);
+    }
+  }
+}

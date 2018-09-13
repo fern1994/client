@@ -1,0 +1,77 @@
+.mainMenuHead,
+.mainMenuList {
+  i {
+    cursor: pointer;
+    margin-right: rem($main-space);
+    &[class*="ico-"] {
+      &::before {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.mainMenuHead {
+  background-color: #f3f5f8;
+  margin-bottom: rem($main-space);
+  padding: rem($main-space) rem($main-space*1.5);
+  height: 45px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.mainMenuList {
+  padding-bottom: rem($main-space);
+  height: calc(100vh - 165px);
+  overflow: auto;
+}
+
+.mainMenuList-item {
+  padding: rem($main-space) rem($main-space*1.5);
+  text-transform: capitalize;
+  font-size: .9rem; // border-bottom: 1px solid rgba(#000, .1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% - #{rem($main-space)});
+    left: rem($main-space/2);
+    border-radius: rem($main-radius);
+    background-color: rgba(#fff, 0);
+    z-index: -1;
+  }
+  &:hover {
+    &::after {
+      background-color: rgba(#000, .05);
+    }
+  }
+  &.--active {
+    color: #fff;
+    &::after {
+      background-color: $main-theme-color;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mainMenuHead,
+  .mainMenuList {
+    i {
+      // margin: auto;
+    }
+  }
+   .mainMenuHead,.mainMenuList-item{
+    >span {
+      @include textDot();
+    }
+  }
+}

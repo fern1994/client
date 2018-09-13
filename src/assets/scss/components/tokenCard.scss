@@ -1,0 +1,37 @@
+.tokenCard {
+  background-color: #f8f8f8;
+  border-radius: rem($main-radius);
+  border: 1px solid rgba(#000, .1);
+  display: flex;
+  margin-bottom: rem($main-space);
+  position: relative;
+  min-height: 45px;
+  .tokenCard-text {
+    flex: 1;
+    padding: rem($main-space);
+    padding-top: rem($main-space * 1.5);
+    word-break: break-word;
+  }
+  .tokenCard-action {
+    .dt-btn {
+      border-radius: 0;
+      border: 0px;
+      border-left: 1px solid rgba(#000, .1);
+      box-shadow: none;
+      height: 100%;
+    }
+  }
+  &.--expiry {
+    margin-left: 5px;
+    &::before {
+      content: '';
+      border-radius: rem($main-radius) 0 0 rem($main-radius);
+      width: 5px;
+      height: calc(100% + 2px);
+      background-color: $color--error;
+      position: absolute;
+      left: -5px;
+      top: -1px;
+    }
+  }
+}

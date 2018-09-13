@@ -1,0 +1,23 @@
+// ScrollBar style
+// -------------------------------
+// HTU @include scrollBar($width,$height,$radius,$color-track,$color-thumb);
+@mixin scrollBar($width:$scrollBar-width, $height:$scrollBar-height, $radius:$scrollBar-radius, $color-track:$scrollBar-color--track, $color-thumb:$scrollBar-color--thumb) {
+  @include prefixAtRoot('::-webkit-scrollBar') {
+    width: $width;
+    height: $height;
+  }
+  @include prefixAtRoot('::-webkit-scrollBar-track') {
+    background: $color-track;
+    @include border-radius($radius);
+  }
+  @include prefixAtRoot('::-webkit-scrollBar-track:hover') {
+    background: $color-track;
+  }
+  @include prefixAtRoot('::-webkit-scrollBar-thumb') {
+    background-color: $color-thumb;
+    @include border-radius($radius);
+  }
+  @include prefixAtRoot('::-webkit-scrollBar-thumb:hover') {
+    background-color: darken($color-thumb, 10%);
+  }
+}

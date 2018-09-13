@@ -1,0 +1,58 @@
+// Form
+// -------------------------------
+.dt-inputForm {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: normal;
+  color: $main-font-color;
+  .dt-inputForm-block {
+    position: relative;
+    margin-right: rem($main-space);
+    margin-bottom: rem($main-space);
+  }
+  .dt-inputText {
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+    text-transform: capitalize;
+    white-space: nowrap;
+    &::after {
+      content: ':';
+      display: inline-block;
+      flex-basis: 10px;
+      min-width: 10px;
+      text-align: center;
+    }
+  }
+  .dt-inputField {
+    margin-bottom: 0;
+  }
+  .dt-inputMessage {
+    color: $color--error;
+    font-size: .7em;
+  }
+  &.--oneBlock {
+    .dt-inputForm-block {
+      display: flex;
+      flex-basis: 100%;
+      flex-direction: column;
+      margin-right: 0;
+    }
+    .dt-inputText {
+      &::after {
+        content: '';
+      }
+    }
+    .dt-inputMessage {
+      height: 0;
+      text-align: left;
+      @include textDot();
+      @include transitionMulti((height, overflow));
+      &.--show {
+        height: 1rem;
+        @include transitionMulti((height, overflow));
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@import '../base/indexBaseRS';
+// input
+// -------------------------------
+$input-bg-color: #fff !default;
+$input-padding: 5px !default;
+$input-height: 40px !default;
+$input-radius: $main-radius !default;
+$input-border-size: 1px !default;
+$input-border-type: solid !default;
+$input-border-color: #b8bfc5 !default;
+$input-border: $input-border-size $input-border-type $input-border-color !default;
+$input-border-color--focus: #9db7d0 !default;
+$input-boxShadow:0 0 0 0 rgba(255, 255, 255, 0) !default;
+$input-boxShadow--focus: 0 0 0 0.2rem $main-shadow-color--focus !default;
+// --------------------------------------------------------------------
+.dt-input {
+  appearance: none;
+  border: $input-border-size;
+  border-color: $input-border-color;
+  border-radius: $input-radius;
+  border-style: $input-border-type;
+  box-shadow: $input-boxShadow;
+  height: rem($input-height);
+  padding: rem($input-padding);
+  @include transitionMulti((border, box-shadow));
+  &:focus {
+    border-color: $input-border-color--focus;
+    box-shadow: $input-boxShadow--focus;
+  }
+}
+
+.dt-inputField {
+  position: relative;
+  display: inline-flex;
+  &[class^="ico-"],
+  &[class*="ico-"] {
+    &::before {
+      font-size: 1.2rem;
+      left: rem(7px);
+      position: absolute;
+      top: 50%;
+      margin-top: -0.6rem;
+      color: $main-iconFont-color;
+    }
+    input {
+      padding-left: 2rem;
+      width: 100%;
+    }
+  }
+}
+
+.dt-dateField {
+  width: rem(130px);
+  input {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,82 @@
+@import 'indexRS';
+@import '../components/bgDot';
+// Login
+// -------------------------------
+:local {
+  .loginContainer {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+  .loginContent {
+    max-width: 80%;
+    width: rem(300px);
+  }
+  .loginContent-title {
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: rem(30px);
+    text-align: center;
+    img {
+      height: rem($login-logo-hide);
+    }
+    h2 {
+      font-size: 1.5em;
+      color: $main-theme-color;
+    }
+  }
+  .loginContent-message {
+    align-items: center;
+    color: $color--error;
+    display: flex;
+    font-size: .9rem;
+    height: 0;
+    justify-content: center;
+    overflow: hidden;
+    @include transitionMulti((height), .2s);
+    &.--show {
+      height: rem(40px);
+      @include transitionMulti((height), .2s);
+    }
+  }
+  .loginContent-inputGroup {
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+    :global {
+      .dt-input {
+        height: rem(40px);
+      }
+    }
+  }
+  .loginContent-btnControl {
+    :global {
+      .dt-btn {
+        justify-content: center;
+        margin-top: rem($main-space);
+        width: 100%;
+      }
+    }
+  }
+  .loginContent-signUp {
+    color: $login-signUp-text-color;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .9rem;
+    justify-content: center;
+    margin-top: rem($main-space);
+    a {
+      margin-left: rem(5px);
+      color: $main-link-color;
+    }
+  }
+  .langauge-btn{
+    font-size: smaller;
+    position: absolute;
+    height: 26px;
+    min-width: 26px;
+    top: 1%;
+    right: 1%;
+  }
+}

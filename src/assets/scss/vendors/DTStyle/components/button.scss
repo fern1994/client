@@ -1,0 +1,133 @@
+// ##### Button #####
+$btn-bg-color: #f1f1f1 !default;
+$btn-bg-color--disabled: darken($btn-bg-color, 20%) !default;
+$btn-border-color: rgba(#000, 0.25) !default;
+$btn-radius: 2px !default;
+$btn-padding: 5px !default;
+$btn-font-color: #000 !default;
+$btn-font-color--disabled: rgba($btn-font-color, .7) !default;
+$btn-font-size: initial !default;
+$btn-icon-color: #000 !default;
+$btn-icon-color--disabled: rgba($main-iconFont-color, .7) !default;
+$btn-icon-size--only: $main-browserContext--calc !default;
+$btn-icon-size: $main-browserContext--calc !default;
+$btn-height: 40px !default;
+$btn-height--min: 40px !default;
+$btn-height--max: 40px !default;
+$btn-width: auto !default;
+$btn-width--max: initial !default;
+$btn-width--min: $btn-height !default;
+$btn-box-shadow: 0 1px 1px rgba(#000, .15),
+inset 0 #{$btn-height / -2} 0 rgba(0, 0, 0, .05) !default;
+// --------------------------------------------------------------------
+@mixin btnStyle-disabled {
+  background: lighten($btn-bg-color, 1.5%);
+  color: rgba(#000, .35);
+  box-shadow: none;
+  &::before,
+  &::after {
+    color: rgba(#000, .35);
+  }
+}
+
+@mixin btnStyle($border-radius:$btn-radius, $btn-height:$btn-height, $btn-bg-color:$btn-bg-color, $btn-font-color:$btn-font-color, $btn-box-shadow:$btn-box-shadow, $btn-font-size:$btn-font-size) {
+  align-items: baseline;
+  background: $btn-bg-color;
+  border-radius: rem($border-radius);
+  border: 1px;
+  border-style: solid;
+  border-color: $btn-border-color;
+  box-shadow: $btn-box-shadow;
+  color: $btn-font-color;
+  display: inline-flex;
+  font-size: $btn-font-size;
+  height: rem($btn-height);
+  justify-content: center;
+  align-items: center;
+  padding: rem($btn-padding);
+  text-align: center;
+  min-width: rem(80px);
+  text-transform: capitalize;
+  cursor: pointer;
+  &[disabled],
+  &.disabled {
+    @include btnStyle-disabled;
+  }
+  &:active {
+    box-shadow: 0 0px 0px rgba(#fff, 0);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0), inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// @mixin btnStyle-focus() {}
+.dt-btn {
+  @include btnStyle();
+  &[class*="ico"] {
+    &::before,
+    &::after {
+      font-size: 1.4rem;
+      color: $main-iconFont-color;
+    }
+    &:not(.--iconOnly) {
+      &::before {
+        margin-right: rem(5px);
+      }
+      &::after {
+        margin-left: rem(5px);
+      }
+    }
+  }
+  &.--iconOnly {
+    min-width: initial;
+    width: rem($btn-height);
+    &[class*="ico"] {
+      &::before,
+      &::after {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &[class*="--bg-"] {
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    &::before,
+    &::after {
+      color: #fff;
+    }
+  }
+  &.--bg-primary {
+    background-color: $color--primary;
+  }
+  &.--bg-success {
+    background-color: $color--success;
+  }
+  &.--bg-warning {
+    background-color: $color--warning;
+  }
+  &.--bg-error {
+    background-color: $color--error;
+  }
+  &.--bg-link {
+    background-color: $color--primary;
+  }
+}
+
+.dt-inputFile {
+  @include btnStyle();
+  overflow: hidden;
+  position: relative; // &::before{
+  //   content: '\e92b';
+  //   @include iconStyle();
+  // }
+  input[type='file'] {
+    cursor: pointer;
+    height: 100px;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
+  .dt-inputFile-text {
+    cursor: pointer;
+  }
+}

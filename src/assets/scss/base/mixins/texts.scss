@@ -1,0 +1,20 @@
+// Text style
+// -------------------------------
+// HTU @include textDot((options:value));
+$textDotVariableDefault:( width: 100%, white-space: nowrap, overflow: hidden, text-overflow: ellipsis, textDot-clear: false);
+@mixin textDot($options: ()) {
+    $mapMerge: map-merge($textDotVariableDefault, $options);
+    @if(map-get($textDotVariableDefault, textDot-clear)==false) {
+        $mapRemove: map-remove($mapMerge, textDot-clear);
+        @each $property,
+        $value in $mapRemove {
+            #{$property}: $value;
+        }
+    } @else{
+        $mapRemove: map-remove($mapMerge, textDot-clear);
+        @each $property,
+        $value in $mapRemove {
+            #{$property}: initial;
+        }
+    }
+}

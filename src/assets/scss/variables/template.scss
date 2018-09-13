@@ -1,0 +1,27 @@
+// Variable Template
+// -------------------------------
+// base
+$main-body-color: #f9f9f9;
+$main-theme-color: #1e6faf;
+$main-space:10px;
+$main-space-layout:20px;
+$main-browserContext:14px;
+$main-browserContext--calc:16px;
+$main-link-color: $main-theme-color;
+$main-content-width :1024px;
+// Text
+$main-font-name: sans-serif;
+$main-font-color: #3a3a3a;
+// icons
+$main-iconFont-color: #2f679e;
+$main-iconFont-name: 'dtIconFont-linear';
+// Template
+$main-header-height: 60px;
+$main-header-bg-color:#f7f7f7;
+$main-header-logo-height: $main-header-height - 10px;
+// >> Login page
+$login-logo-hide:150px;
+$login-btn-bg-color:$main-theme-color;
+$login-signUp-text-color:#6b6b6b;
+// >> Register page
+$register:150px;

@@ -1,0 +1,22 @@
+@import '../base/indexBaseRS';
+// Text style
+// -------------------------------
+$main-titleH1: 2rem;
+$main-titleH2: 1.5rem;
+$main-titleH3: 1.25rem;
+// --------------------------------------------------------------------
+[class*="titleH"] {
+  margin-bottom: rem($main-space);
+}
+
+.titleH1 {
+  font-size: $main-titleH1;
+}
+
+.titleH2 {
+  font-size: $main-titleH2;
+}
+
+.titleH3 {
+  font-size: $main-titleH3;
+}

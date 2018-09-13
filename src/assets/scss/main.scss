@@ -1,0 +1,18 @@
+/** Base */
+@import 'base/indexBaseRS';
+@import 'base/cssReset';
+
+/** Variables */
+@import 'variables/index';
+
+/** Fonts */
+@import '../fonts/index';
+
+/** Vendors */
+@import 'vendors/index';
+
+/** Components */
+@import 'components/index';
+
+/** Themes */
+@import 'themes/template.scss';

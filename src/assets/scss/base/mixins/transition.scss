@@ -1,0 +1,13 @@
+// Text style
+// -------------------------------
+// HTU @include transitionMulti((property...),$timing,$duration);
+@mixin transitionMulti($property:(), $timing:$main-transition--timing, $duration:$main-transition--duration) {
+  @if(length($property)==0) {
+    $property: all;
+  }
+  $all: ();
+  @for $i from 1 through length($property) {
+    $all: append($all, append(nth($property, $i), $timing $duration), comma);
+  }
+  transition: $all;
+}

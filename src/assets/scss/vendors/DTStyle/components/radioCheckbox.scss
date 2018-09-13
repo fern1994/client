@@ -1,0 +1,139 @@
+// ##### Variables #####
+// -- checkbox & radio -- 
+$radioCheckbox-bg-color:#fff !default;
+$radioCheckbox-bg-color--active:$main-theme-color !default;
+$radioCheckbox-shadow-color--focus:$main-shadow-color--focus !default;
+$radioCheckbox-border-color--focus:$main-border-color--focus !default;
+$radioCheckbox-size:30px !default;
+$radioCheckbox-space:10px !default;
+$radioCheckbox-border-size:1px !default;
+$radioCheckbox-border-color:#9a9a9a !default;
+$radioCheckbox-check-color:$main-theme-color !default;
+$radioCheckbox-disabled-opacity:.4 !default;
+// -- checkbox -- 
+$checkbox-size:$radioCheckbox-size !default;
+$checkbox-border-color:$radioCheckbox-border-color !default;
+$checkbox-check-color:$radioCheckbox-check-color !default;
+$checkbox-check-top:-3px !default;
+$checkbox-check-left:11px !default;
+$checkbox-radius:2px;
+// -- radio -- 
+$radio-border-color:$radioCheckbox-border-color !default;
+$radio-check-color:$radioCheckbox-check-color !default;
+$radio-radius:100% !default;
+$radio-check-top:-1 !default;
+$radio-check-left:6 !default;
+$radio-size:$radioCheckbox-size !default;
+// --------------------------------------------------------------------
+[data-type='radio'],
+[data-type='checkbox'] {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  margin-bottom: rem($radioCheckbox-space);
+  padding-right: rem($radioCheckbox-space);
+  position: relative;
+  >input {
+    &[type='radio'],
+    &[type='checkbox'] {
+      appearance: none;
+      height: 0;
+      opacity: 0;
+      width: 0;
+      +.text {
+        display: inline-flex;
+        min-height: rem($radioCheckbox-size);
+        position: relative;
+        word-break: break-word;
+        margin-top: rem($checkbox-size / 2);
+        &::before {
+          background-color: $radioCheckbox-bg-color;
+          box-shadow: 0 0 0 rem(2px) rgba(#fff, 0);
+          content: '';
+          display: inline-flex;
+          margin-right: rem(5px);
+          position: relative;
+          top: rem($checkbox-size / -4);
+          @include transitionMulti((box-shadow, border));
+        }
+      }
+      &:focus {
+        +.text {
+          &::before {
+            box-shadow: 0 0 0 rem(2px) $radioCheckbox-shadow-color--focus;
+            border-color: $radioCheckbox-border-color--focus;
+            @include transitionMulti((box-shadow, border));
+          }
+        }
+      }
+      &:checked {
+        +.text {
+          &::after {
+            position: absolute;
+          }
+        }
+      }
+      &[disabled] {
+        +.text {
+          cursor: no-drop;
+          opacity: $radioCheckbox-disabled-opacity;
+          &::before,
+          &::after {
+            cursor: no-drop;
+            opacity: $radioCheckbox-disabled-opacity;
+          }
+        }
+      }
+    }
+    &[type='checkbox'] {
+      +.text {
+        &::before {
+          border-radius: ($checkbox-radius);
+          border: 1px solid $checkbox-border-color;
+          height: $checkbox-size;
+          min-width: $checkbox-size;
+          width: $checkbox-size;
+        }
+      }
+      &:checked {
+        +.text {
+          &::after {
+            content: '';
+            top: rem($checkbox-check-top);
+            left: rem($checkbox-check-left);
+            width: rem($checkbox-size / 5);
+            height: rem($checkbox-size / 2);
+            border-right: rem($checkbox-size / 7) solid;
+            border-bottom: rem($checkbox-size / 7) solid;
+            border-color: $checkbox-check-color;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    &[type='radio'] {
+      +.text {
+        &::before {
+          width: $radio-size;
+          height: $radio-size;
+          min-width: $radio-size;
+          border-radius: $radio-radius;
+          border: 1px solid $radio-border-color;
+        }
+      }
+      &:checked {
+        +.text {
+          &::after {
+            content: ''; // 
+            top: rem($radio-check-top);
+            left: rem($radio-check-left);
+            width: rem($radio-size / 1.5);
+            height: rem($radio-size / 1.5);
+            background-color: $radio-check-color;
+            border-radius: $radio-radius;
+          }
+        }
+      }
+    }
+  }
+}

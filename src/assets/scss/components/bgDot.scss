@@ -1,0 +1,5 @@
+%bgDot {
+  background: radial-gradient(darken($main-body-color, 8%) 13%, transparent 16%);
+  background-color: $main-body-color;
+  background-size: 5px 5px;
+}

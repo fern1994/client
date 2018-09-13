@@ -1,0 +1,129 @@
+// ##### jQuery Datepicker #####
+$jq-dpk-bg-color:#fff;
+$jq-dpk-border-color:#b9bfc5;
+$jq-dpk-font-color:#2c2c2c;
+$jq-dpk-icon-arrow-color:rgba(#000, .5);
+$jq-dpk-radius:$main-radius;
+$jq-dpk-date-size:35px;
+// --------------------------------------------------------------------
+.ui-datepicker {
+  background: $jq-dpk-bg-color;
+  border-radius: $jq-dpk-radius;
+  border: 1px solid $jq-dpk-border-color;
+  box-shadow: 0px 1px 0px 1px rgba(#000, .1);
+  margin-top: rem(3px); // width: rem($jq-dpk-width);
+  .ui-datepicker-header {
+    background: none;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    position: relative;
+    a {
+      cursor: pointer;
+      height: rem(15px);
+      width: rem(15px);
+      border-radius: 0;
+      top: 50%;
+      margin-top: rem(15px) / -2;
+      border-left: 3px solid $jq-dpk-icon-arrow-color;
+      border-top: 3px solid $jq-dpk-icon-arrow-color;
+      color: $jq-dpk-font-color;
+      &:hover {
+        background: none;
+        border: none;
+        border-left: 3px solid $jq-dpk-icon-arrow-color;
+        border-top: 3px solid $jq-dpk-icon-arrow-color;
+      }
+      &.ui-datepicker-prev {
+        left: 12px;
+        @include rotate(-45);
+        &:hover {
+          left: 12px;
+        }
+      }
+      &.ui-datepicker-next {
+        right: 12px;
+        @include rotate(135);
+        &:hover {
+          right: 12px;
+        }
+      }
+      span {
+        display: none;
+      }
+    }
+    .ui-datepicker-title {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      select {
+        @extend .dt-select;
+        @include fontStyle();
+        margin: 0 rem(5px);
+      }
+    }
+  }
+  .ui-datepicker-calendar {
+    box-sizing: border-box;
+    th,
+    td {
+      height: rem($jq-dpk-date-size);
+      width: rem($jq-dpk-date-size);
+    }
+    thead {
+      tr {
+        th {
+          font-weight: bold;
+          padding: rem(5px) 0;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 1px;
+          a,
+          span {
+            background-color: #fff;
+            background: none;
+            font-weight: normal;
+            height: 100%;
+            padding: rem(5px);
+            text-align: center;
+            width: 100%;
+            &:hover {}
+          }
+          a {
+            align-items: center;
+            border-radius: $main-radius;
+            display: flex;
+            justify-content: center;
+            &.ui-state-default {
+              border: 1px solid rgba(#fff, 0);
+              color: $jq-dpk-font-color;
+            }
+            &.ui-state-highlight,
+            &.ui-state-active {
+              color: #fff;
+              font-weight: bold;
+              border: 1px solid rgba(#000, .1);
+            }
+            &.ui-state-highlight {
+              background-color: $color--primary;
+            }
+            &.ui-state-active {
+              background-color: $color--success;
+            }
+          }
+          &.ui-state-disabled{
+            .ui-state-default {
+              border: none;
+              color: rgba(#000, .5);
+            }
+          }
+        }
+      }
+    }
+  }
+}

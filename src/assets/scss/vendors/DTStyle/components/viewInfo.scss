@@ -1,0 +1,46 @@
+// Form
+// -------------------------------
+.dt-viewInfo {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: normal;
+  color: $main-font-color;
+  .dt-viewInfo-block {
+    display: flex;
+    margin-bottom: rem($main-space);
+    margin-right: rem($main-space);
+    position: relative;
+  }
+  .dt-viewInfo-title {
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+    text-transform: capitalize;
+    white-space: nowrap;
+    font-weight: bold;
+    &::after {
+      content: ':';
+      margin-left: auto;
+      display: inline-block;
+      flex-basis: 10px;
+      min-width: 10px;
+      text-align: center;
+    }
+    &[class*="ico-"]{
+      &::before{
+        font-size: 1.2rem;
+        margin-right: rem($main-space);
+      }
+      +.dt-viewInfo-text {
+        line-height: 1.2rem;
+      }
+    }
+  }
+  .dt-viewInfo-text {}
+  &.--oneBlock {
+    .dt-viewInfo-block {
+      flex-basis: 100%;
+    }
+  }
+}

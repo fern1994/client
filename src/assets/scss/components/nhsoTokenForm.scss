@@ -1,0 +1,12 @@
+.nhsoTokenForm {
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  .dt-inputForm-block {
+    flex: 1;
+  }
+  .btnAction {
+    margin-left: rem($main-space);
+    margin-top: rem(16px);
+  }
+}

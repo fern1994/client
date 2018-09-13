@@ -1,0 +1,74 @@
+.userProfileContent {
+  display: flex;
+  .profileImage,
+  .profileInfo {
+    margin: 0 auto;
+    display: inline-flex;
+    flex-direction: column;
+    
+  }
+  .profileImage {
+    margin-right: rem($main-space);
+    position: relative;
+  }
+  .profileInfo {
+    .dt-viewInfo {
+      margin-bottom: auto;
+      .dt-viewInfo-title {
+        width: rem(108px);
+      }
+    }
+    .btnControl {
+      margin-top: auto;
+    }
+  }
+}
+
+$profileImage-size:150px;
+.profileImage-content {
+  align-items: center;
+  align-items: center;
+  background-image: url('../images/icons/userProfile.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  border-radius: $main-radius;
+  border: 1px solid rgba(#000, .25);
+  display: flex;
+  height: rem($profileImage-size);
+  justify-content: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: rem(5px);
+  width: rem($profileImage-size);
+  img{
+    height: 100%;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.profileImage-upLoad {
+  position: absolute;
+  bottom: rem($main-space);
+  left: rem($main-space);
+  width: calc(100% - rem(#{$main-space*2}));
+  .dt-inputFile {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .userProfileContent {
+    flex-direction: column;
+    .profileImage{
+      margin: initial;
+      margin-right: auto;
+      margin-bottom: rem($main-space);
+    }
+    .profileInfo{
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+// Calculator Unit
+// -------------------------------
+// HTU nameFunction($number px);
+
+// Calculator PX to EM
+// -------------------------------
+@function em($pixels, $context: $main-browserContext--calc) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+// Calculator PX to REM
+// -------------------------------
+@function rem($pixels, $context: $main-browserContext--calc) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+// Calculator REM to PX
+// -------------------------------
+@function px($rems, $context: $main-browserContext--calc) {
+  @if (unitless($rems)) {
+    $rems: $rems * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $rems * $context;
+}

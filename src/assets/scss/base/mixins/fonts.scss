@@ -1,0 +1,33 @@
+// Mixins Fonts
+// -------------------------------
+@mixin fontSmoot() {
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin fontStyleDefault($main-browserContext:$main-browserContext) {
+  font-size: $main-browserContext;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+@mixin fontStyle($fontSmoot:false,$main-font-name:$main-font-name, $main-font-color:$main-font-color, $main-browserContext:$main-browserContext) {
+  font-family: $main-font-name;
+  color: $main-font-color;
+  @include fontStyleDefault($main-browserContext);
+  @if($fontSmoot==true) {
+    @include fontSmoot();
+  }
+}
+
+@mixin iconStyle($fontSmoot:true,$main-iconFont-name:$main-iconFont-name, $main-iconFont-color:$main-iconFont-color, $main-browserContext:$main-browserContext) {
+  font-family: $main-iconFont-name;
+  color: $main-iconFont-color;
+  @include fontStyleDefault($main-browserContext);
+  @if($fontSmoot==true) {
+    @include fontSmoot();
+  }
+}

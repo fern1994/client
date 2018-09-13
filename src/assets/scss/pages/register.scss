@@ -1,0 +1,47 @@
+@import 'indexRS';
+@import '../components/bgDot';
+// Register page
+// -------------------------------
+:local {
+  .registerPage {
+    :global {
+      .mainHeader-logo {
+        margin: auto;
+      }
+      .mainHeader-logout {
+        display: none;
+      }
+      .mainContent {
+        // justify-content: center;
+        flex: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.registerContent {
+  max-width: 90%;
+  width: rem(350px);
+  margin: 0 auto;
+  .dt-inputForm-block {
+    flex-basis: 100%;
+  }
+  .dt-inputText {
+    &::after {
+      content: '';
+    }
+  }
+  .dt-inputField {
+    width: 100%;
+  }
+  .btnControl {
+    display: flex;
+    >* {
+      flex: auto;
+      &.--bg-primary {
+        margin-right: rem($main-space);
+      }
+    }
+  }
+}
